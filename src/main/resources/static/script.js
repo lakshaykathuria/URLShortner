@@ -8,13 +8,12 @@ async function shortenUrl() {
     }
 
     try {
-        const response = await fetch("https://urlshortner-9v7u.onrender.com", {
+        const response = await fetch("/shorten", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ longUrl: longUrl })
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ longUrl: longUrl }),
         });
+
 
         if (!response.ok) {
             const errorText = await response.text();
