@@ -8,12 +8,13 @@ async function shortenUrl() {
     }
 
     try {
-        const response = await fetch("/shorten", {
+        const response = await fetch("https://urlshortner-9v7u.onrender.com/shorten", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ longUrl: longUrl }),
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ longUrl: longUrl })
         });
-
 
         if (!response.ok) {
             const errorText = await response.text();
@@ -21,6 +22,7 @@ async function shortenUrl() {
         }
 
         const data = await response.json();
+        console.log("Short URL returned from backend:", data.shortUrl);  // ✅ Add this
         resultDiv.innerHTML = `<a href="${data.shortUrl}" target="_blank">${data.shortUrl}</a>`;
     } catch (error) {
         resultDiv.innerText = "Error: " + error.message;
