@@ -18,7 +18,7 @@ public class UrlController {
     @Autowired
     private UrlService urlService;
 
-    @Value("${app.base-url:https://urlshortner-9v7u.onrender.com/}")
+    @Value("${app.base-url:https://urlshortner-9v7u.onrender.com}")
     private String baseDomain;
 
     /**
